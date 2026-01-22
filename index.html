@@ -52,10 +52,9 @@
         h2 { font-family: 'Great Vibes', cursive; font-size: 4.5em; margin: 15px 0; }
         h3 { font-family: 'Cinzel', serif; color: var(--dorado); letter-spacing: 3px; }
 
-        /* --- CIRCULO DRESS CODE --- */
         .dress-code-circle {
-            width: 150px;
-            height: 150px;
+            width: 140px;
+            height: 140px;
             border: 2px solid var(--dorado);
             border-radius: 50%;
             display: flex;
@@ -67,15 +66,13 @@
             box-shadow: 0 0 15px var(--dorado);
         }
         .dress-code-circle i { font-size: 1.5em; color: var(--dorado); margin-bottom: 5px; }
-        .dress-code-circle span { font-family: 'Cinzel', serif; font-size: 0.8em; font-weight: bold; line-height: 1.2; padding: 0 10px; }
+        .dress-code-circle span { font-family: 'Cinzel', serif; font-size: 0.8em; font-weight: bold; line-height: 1.2; }
 
-        /* --- CUENTA REGRESIVA --- */
         #countdown { display: flex; gap: 10px; margin: 25px 0; }
         .time-box { background: rgba(0, 0, 0, 0.6); border: 1px solid var(--dorado); padding: 12px; border-radius: 8px; min-width: 60px; }
         .time-box span { display: block; font-size: 1.8em; font-weight: bold; color: var(--dorado); }
         .time-box label { font-size: 0.6em; text-transform: uppercase; text-shadow: none; }
 
-        /* --- CALENDARIO --- */
         .calendar-box {
             background: var(--blanco); color: #333; width: 100px; border-radius: 10px; overflow: hidden; margin-bottom: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.5);
@@ -83,8 +80,7 @@
         .calendar-header { background: #c00; color: white; padding: 5px; font-weight: bold; text-shadow: none; }
         .calendar-body { font-size: 2.5em; font-weight: bold; padding: 5px; text-shadow: none; }
 
-        /* --- BOTONES --- */
-        .btn-container { display: flex; flex-direction: column; gap: 12px; margin-top: 25px; width: 100%; max-width: 300px; }
+        .btn-container { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; width: 100%; max-width: 300px; }
         .btn {
             text-decoration: none; padding: 15px; border: 2px solid var(--dorado); color: var(--blanco);
             font-family: 'Cinzel', serif; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s;
@@ -92,7 +88,9 @@
         }
         .btn:hover { background: var(--dorado); color: #000; }
 
-        /* --- ITINERARIO --- */
+        .confirm-text { margin-top: 30px; font-size: 1.1em; }
+        .cuento-contigo { font-family: 'Great Vibes', cursive; font-size: 2.5em; color: var(--dorado); margin: 10px 0; }
+
         .timeline-container { width: 100%; max-width: 450px; margin-top: 15px; }
         .timeline-item { display: flex; align-items: center; margin-bottom: 30px; text-align: left; border-left: 3px solid var(--dorado); padding-left: 20px; margin-left: 20px; }
         .timeline-item i { font-size: 1.8em; color: var(--dorado); margin-right: 15px; width: 40px; text-align: center; }
@@ -129,7 +127,6 @@
             <div class="calendar-header">FEBRERO</div>
             <div class="calendar-body">28</div>
         </div>
-        <h3>RESERVA LA FECHA</h3>
         
         <div id="countdown">
             <div class="time-box"><span id="days">00</span><label>Días</label></div>
@@ -138,8 +135,7 @@
             <div class="time-box"><span id="sec">00</span><label>Seg</label></div>
         </div>
 
-        <div style="margin: 15px 0;">
-            <p><i class="fa-solid fa-clock"></i> 7:00 PM</p>
+        <div style="margin-bottom: 20px;">
             <p><i class="fa-solid fa-location-dot"></i> <b>RECEPCIONES MIRAFLORES</b><br>Av. Miraflores n°543</p>
         </div>
 
@@ -148,12 +144,18 @@
             <span>DRESS CODE:<br>ELEGANTE</span>
         </div>
 
+        <div class="confirm-text">
+            <p>CONFIRMAR ASISTENCIA</p>
+            <p class="cuento-contigo">¿Cuento contigo?</p>
+            <p>Por favor confirma tu asistencia</p>
+        </div>
+
         <div class="btn-container">
-            <a href="https://maps.app.goo.gl/36Wihi1bqkuqGQEc7" target="_blank" class="btn">
-                <i class="fa-solid fa-map-location-dot"></i> VER UBICACIÓN
-            </a>
             <a href="https://wa.me/51943477695?text=Hola%20Astrid,%20confirmo%20mi%20asistencia" target="_blank" class="btn">
-                <i class="fa-solid fa-check-double"></i> CONFIRMAR ASISTENCIA
+                <i class="fa-solid fa-check-double"></i> CLICK AQUÍ
+            </a>
+            <a href="https://maps.app.goo.gl/36Wihi1bqkuqGQEc7" target="_blank" class="btn" style="border-color: rgba(212, 175, 55, 0.5); font-size: 0.8em;">
+                <i class="fa-solid fa-map-location-dot"></i> VER UBICACIÓN
             </a>
         </div>
     </div>
