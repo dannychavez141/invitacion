@@ -14,56 +14,41 @@
         }
 
         body, html { 
-            margin: 0; 
-            padding: 0; 
+            margin: 0; padding: 0; 
             font-family: 'Montserrat', sans-serif; 
             background-color: #002b21; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center;
+            display: flex; flex-direction: column; align-items: center;
         }
 
         .page-a4 {
-            width: 90%;
-            max-width: 800px; 
-            min-height: 1100px; 
-            margin: 40px 0;
-            padding: 60px 40px;
-            box-sizing: border-box;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-            border: 2px solid var(--dorado);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            border-radius: 5px;
-            text-align: center;
-            color: var(--blanco);
+            width: 90%; max-width: 800px; min-height: 1100px; 
+            margin: 40px 0; padding: 60px 40px; box-sizing: border-box;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5); border: 2px solid var(--dorado);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            position: relative; border-radius: 5px; text-align: center; color: var(--blanco);
             background-image: linear-gradient(var(--filtro-suave), var(--filtro-suave)), url('fondo.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background-size: cover; background-position: center; background-repeat: no-repeat;
         }
 
         h1, h2, h3, p, div { text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); }
-
         h1 { font-family: 'Cinzel', serif; color: var(--dorado); font-size: 2.5em; margin-bottom: 10px; }
         h2 { font-family: 'Great Vibes', cursive; font-size: 4.5em; margin: 15px 0; }
         h3 { font-family: 'Cinzel', serif; color: var(--dorado); letter-spacing: 3px; }
 
+        /* --- CONTROL DE MÚSICA FLOTANTE --- */
+        .music-control {
+            position: fixed; bottom: 20px; right: 20px; z-index: 1000;
+            background: rgba(0, 0, 0, 0.7); border: 2px solid var(--dorado);
+            color: var(--dorado); width: 50px; height: 50px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; box-shadow: 0 0 15px var(--dorado);
+        }
+
+        /* --- OTROS ESTILOS --- */
         .dress-code-circle {
-            width: 140px;
-            height: 140px;
-            border: 2px solid var(--dorado);
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin: 20px auto;
-            background: rgba(0, 0, 0, 0.5);
-            box-shadow: 0 0 15px var(--dorado);
+            width: 140px; height: 140px; border: 2px solid var(--dorado); border-radius: 50%;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            margin: 20px auto; background: rgba(0, 0, 0, 0.5); box-shadow: 0 0 15px var(--dorado);
         }
         .dress-code-circle i { font-size: 1.5em; color: var(--dorado); margin-bottom: 5px; }
         .dress-code-circle span { font-family: 'Cinzel', serif; font-size: 0.8em; font-weight: bold; line-height: 1.2; }
@@ -104,6 +89,11 @@
 </head>
 <body>
 
+    <audio id="bgMusic" src="musica.mp3" loop preload="auto"></audio>
+    <div class="music-control" onclick="toggleMusic()">
+        <i id="musicIcon" class="fas fa-play"></i>
+    </div>
+
     <div class="page-a4">
         <h1>MIS XV AÑOS</h1>
         <div style="width: 100px; height: 2px; background: var(--dorado); margin: 20px 0;"></div>
@@ -127,63 +117,72 @@
             <div class="calendar-header">FEBRERO</div>
             <div class="calendar-body">28</div>
         </div>
-        
         <div id="countdown">
             <div class="time-box"><span id="days">00</span><label>Días</label></div>
             <div class="time-box"><span id="hours">00</span><label>Hrs</label></div>
             <div class="time-box"><span id="min">00</span><label>Min</label></div>
             <div class="time-box"><span id="sec">00</span><label>Seg</label></div>
         </div>
-
-        <div style="margin-bottom: 20px;">
-            <p><i class="fa-solid fa-location-dot"></i> <b>RECEPCIONES MIRAFLORES</b><br>Av. Miraflores n°543</p>
-        </div>
-
-        <div class="dress-code-circle">
-            <i class="fa-solid fa-user-tie"></i>
-            <span>DRESS CODE:<br>ELEGANTE</span>
-        </div>
-
-        <div class="confirm-text">
-            <p>CONFIRMAR ASISTENCIA</p>
-            <p class="cuento-contigo">¿Cuento contigo?</p>
-            <p>Por favor confirma tu asistencia</p>
-        </div>
-
+        <div style="margin-bottom: 20px;"><p><i class="fa-solid fa-location-dot"></i> <b>RECEPCIONES MIRAFLORES</b><br>Av. Miraflores n°543</p></div>
+        <div class="dress-code-circle"><i class="fa-solid fa-user-tie"></i><span>DRESS CODE:<br>ELEGANTE</span></div>
+        <div class="confirm-text"><p>CONFIRMAR ASISTENCIA</p><p class="cuento-contigo">¿Cuento contigo?</p><p>Por favor confirma tu asistencia</p></div>
         <div class="btn-container">
-            <a href="https://wa.me/51943477695?text=Hola%20Astrid,%20confirmo%20mi%20asistencia" target="_blank" class="btn">
-                <i class="fa-solid fa-check-double"></i> CLICK AQUÍ
-            </a>
-            <a href="https://maps.app.goo.gl/36Wihi1bqkuqGQEc7" target="_blank" class="btn" style="border-color: rgba(212, 175, 55, 0.5); font-size: 0.8em;">
-                <i class="fa-solid fa-map-location-dot"></i> VER UBICACIÓN
-            </a>
+            <a href="https://wa.me/51943477695?text=Hola%20Astrid,%20confirmo%20mi%20asistencia" target="_blank" class="btn"><i class="fa-solid fa-check-double"></i> CLICK AQUÍ</a>
+            <a href="https://maps.app.goo.gl/36Wihi1bqkuqGQEc7" target="_blank" class="btn" style="border-color: rgba(212, 175, 55, 0.5); font-size: 0.8em;"><i class="fa-solid fa-map-location-dot"></i> VER UBICACIÓN</a>
         </div>
     </div>
 
     <div class="page-a4">
         <h1>ITINERARIO</h1>
         <div class="timeline-container">
-            <div class="timeline-item">
-                <i class="fa-solid fa-door-open"></i>
-                <div><span class="time-text">07:00 PM</span> RECEPCIÓN</div>
-            </div>
-            <div class="timeline-item">
-                <i class="fa-solid fa-church"></i>
-                <div><span class="time-text">08:30 PM</span> INICIA CEREMONIA</div>
-            </div>
-            <div class="timeline-item">
-                <i class="fa-solid fa-utensils"></i>
-                <div><span class="time-text">09:30 PM</span> CENA</div>
-            </div>
-            <div class="timeline-item">
-                <i class="fa-solid fa-music"></i>
-                <div><span class="time-text">10:00 PM</span> FIESTA</div>
-            </div>
+            <div class="timeline-item"><i class="fa-solid fa-door-open"></i><div><span class="time-text">07:00 PM</span> RECEPCIÓN</div></div>
+            <div class="timeline-item"><i class="fa-solid fa-church"></i><div><span class="time-text">08:30 PM</span> INICIA CEREMONIA</div></div>
+            <div class="timeline-item"><i class="fa-solid fa-utensils"></i><div><span class="time-text">09:30 PM</span> CENA</div></div>
+            <div class="timeline-item"><i class="fa-solid fa-music"></i><div><span class="time-text">10:00 PM</span> FIESTA</div></div>
         </div>
         <p style="margin-top: 50px; font-family: 'Great Vibes'; font-size: 3em; color: var(--dorado);">¡Te esperamos!</p>
     </div>
 
     <script>
+        const music = document.getElementById("bgMusic");
+        const icon = document.getElementById("musicIcon");
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                icon.classList.replace("fa-play", "fa-pause");
+            } else {
+                music.pause();
+                icon.classList.replace("fa-pause", "fa-play");
+            }
+        }
+
+        // --- TRUCO PARA REPRODUCCIÓN "AUTOMÁTICA" ---
+        // Intenta tocar apenas cargue
+        window.addEventListener('load', () => {
+            music.play().then(() => {
+                icon.classList.replace("fa-play", "fa-pause");
+            }).catch(() => {
+                console.log("El navegador bloqueó el autoplay. Esperando interacción...");
+            });
+        });
+
+        // Activa al primer toque o scroll si el navegador bloqueó el inicio
+        document.addEventListener('click', () => {
+            if (music.paused) {
+                music.play();
+                icon.classList.replace("fa-play", "fa-pause");
+            }
+        }, { once: true });
+
+        document.addEventListener('scroll', () => {
+            if (music.paused) {
+                music.play();
+                icon.classList.replace("fa-play", "fa-pause");
+            }
+        }, { once: true });
+
+        // Cuenta Regresiva
         const targetDate = new Date("Feb 28, 2026 19:00:00").getTime();
         function updateCountdown() {
             const now = new Date().getTime();
